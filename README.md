@@ -82,7 +82,7 @@ livraria-ramos/
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/livraria-ramos.git
+git clone https://github.com/srloga/livraria-ramos.git
 ```
 
 2. Configure o banco de dados MySQL:
@@ -91,7 +91,7 @@ git clone https://github.com/seu-usuario/livraria-ramos.git
 CREATE DATABASE livraria_ramos;
 USE livraria_ramos;
 
--- Importe o arquivo SQL fornecido (estrutura de tabelas: users, books, categories, wishlist, reviews)
+-- Importe o arquivo SQL fornecido 
 ```
 
 3. Configure o arquivo `includes/config.php`:
@@ -133,13 +133,13 @@ http://localhost/livraria-ramos/pages/home.php
 
 ## 📷 Screenshots
 
-![Página Home](assets/images/home-screenshot.png)
+![Página Search](livraria_online/assets/images/search-screenshot.png)
 *Página inicial com carrossel e cards de livros.*
 
-![Wishlist](assets/images/wishlist-screenshot.png)
+![Wishlist](livraria_online/assets/images/wishlist-screenshot.png)
 *Wishlist com botões de remover e adicionar ao carrinho.*
 
-![Book Details](assets/images/book-details-screenshot.png)
+![Book Details](livraria_online/assets/images/book-details-screenshot.png)
 *Detalhes do livro com avaliação e botões de ação.*
 
 ---
