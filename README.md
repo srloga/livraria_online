@@ -1,6 +1,6 @@
 # 📚 Livraria Ramos - Projeto Web PHP/MySQL
 
-![Banner](assets/images/banner.jpg)
+![Banner](livraria_online/assets/images/screenshot1.jpg)
 
 Um sistema de **loja online de livros** desenvolvido em **PHP, MySQL, HTML, CSS e JavaScript**, com painel de administração, funcionalidades de wishlist, carrinho de compras, avaliações de usuários e filtros avançados de busca.
 
