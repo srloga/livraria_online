@@ -39,7 +39,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Wishlist do usuário (se logado)
+// Wishlist do usuário 
 $wishlistIds = [];
 if (isset($currentUserId)) {
     $wstmt = $pdo->prepare("SELECT book_id FROM wishlist WHERE user_id = ?");

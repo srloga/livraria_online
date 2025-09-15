@@ -5,6 +5,7 @@ require_once '../includes/header.php';
 
 $bookId = (int)($_GET['id'] ?? 0);
 
+// Busca livro com categoria
 $stmt = $pdo->prepare("
     SELECT b.*, c.name AS category
     FROM books b
@@ -20,6 +21,7 @@ if (!$book) {
     exit;
 }
 
+// Busca avaliações
 $stmt = $pdo->prepare("
     SELECT r.*, u.username
     FROM reviews r
@@ -73,10 +75,9 @@ if (isset($_SESSION['user_id'])) {
 
             <?php if (isset($_SESSION['user_id'])): ?>
                 <!-- Favoritos -->
-                <a href="<?= BASE_URL ?>pages/wishlist.php?action=add&id=<?= $book['id'] ?>" 
-                   class="btn btn-sm btn-outline-danger mb-2 btn-hover">
-                   ❤️ Adicionar este livro aos favoritos
-                </a>
+                <button class="btn btn-sm btn-outline-danger mb-2 btn-hover btn-wishlist" data-id="<?= $book['id'] ?>">
+                    <?= $isFav ? '❤️ Adicionado aos favoritos ✅' : '❤️ Adicionar este livro aos favoritos' ?>
+                </button>
 
                 <!-- Adicionar ao Carrinho -->
                 <form method="POST" action="<?= BASE_URL ?>pages/add-to-cart.php" class="mb-2">
@@ -159,13 +160,14 @@ $(document).on('click','.btn-wishlist', function(){
     $.post('<?= BASE_URL ?>ajax/toggle_wishlist.php',{book_id:bookId}, function(r){
         if(!r.ok){ alert(r.msg || 'Erro'); return; }
         if(r.added){
-            btn.removeClass('btn-outline-primary').addClass('btn-primary').html('<i class="bi bi-heart-fill"></i> Favorito');
+            btn.removeClass('btn-outline-danger').addClass('btn-danger')
+               .html('❤️ Adicionado aos favoritos ✅');
         } else {
-            btn.removeClass('btn-primary').addClass('btn-outline-primary').html('<i class="bi bi-heart"></i> Favoritar');
+            btn.removeClass('btn-danger').addClass('btn-outline-danger')
+               .html('❤️ Adicionar este livro aos favoritos');
         }
     },'json');
 });
 </script>
 
 <?php require_once '../includes/footer.php'; ?>
-

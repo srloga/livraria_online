@@ -2,7 +2,6 @@
 require_once '../includes/config.php';
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
-require_once '../includes/header.php';
 
 // Verifica login
 if (!isset($_SESSION['user_id'])) {
@@ -12,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $userId = $_SESSION['user_id'];
 
-// remove item da wishlist
+// Remove item da wishlist 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'remove') {
     $bookId = (int)($_POST['book_id'] ?? 0);
     if ($bookId > 0) {
@@ -31,6 +30,8 @@ $sql = "SELECT b.*
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$userId]);
 $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+require_once '../includes/header.php';
 ?>
 
 <div class="container my-5 fade-in">
