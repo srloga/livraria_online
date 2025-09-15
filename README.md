@@ -134,7 +134,7 @@ http://localhost/livraria-ramos/pages/home.php
 ## 📷 Screenshots
 
 ![Página Search](livraria_online/assets/images/search-screenshot.png)
-*Página inicial com carrossel e cards de livros.*
+*Página de procura com opções de filtros.*
 
 ![Wishlist](livraria_online/assets/images/wishlist-screenshot.png)
 *Wishlist com botões de remover e adicionar ao carrinho.*
